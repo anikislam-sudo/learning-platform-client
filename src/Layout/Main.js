@@ -9,16 +9,7 @@ const Main = () => {
     return (
         <div>
             <Header></Header>
-            <Container>
-                <Row>
-                    <Col className='bg-light mt-2' lg="2">
-                        <LeftSide></LeftSide>
-                    </Col>
-                    <Col lg="10">
-                       <Outlet></Outlet>
-                    </Col>
-                </Row>
-            </Container>
+            <Outlet></Outlet>
             <Footer></Footer>
            
         </div>

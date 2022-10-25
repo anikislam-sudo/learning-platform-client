@@ -30,8 +30,8 @@ const Header = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto p-2 fs-5">
-            <Nav.Link  href="#Home">Home</Nav.Link>
-            <Nav.Link href="#Courses">Courses</Nav.Link>
+            <Nav.Link  href="/">Home</Nav.Link>
+            <Nav.Link href="/Courses/:id">Courses</Nav.Link>
             <Nav.Link href="#FAQ">FAQ</Nav.Link>
             <Nav.Link href="#Blog">Blog</Nav.Link>
              <button onClick={toggleTheme} className=" btn btn-sm btn-secondary border border-2 rounded ms-2" > dark/light</button>

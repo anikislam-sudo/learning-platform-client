@@ -1,9 +1,9 @@
 import React from 'react';
-
+import background from "../../../Assets/background.webp"
 const Home = () => {
     return (
         <div>
-           <h2>Home</h2> 
+          <img src={background}  alt="background" />
         </div>
     );
 };
