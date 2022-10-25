@@ -23,13 +23,13 @@ const Header = () => {
         document.body.className =theme;
     },[theme])
     return (
-        <Navbar className='mb-4' collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar className='mb-1' collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
         <Navbar.Brand href="#home">
-       <FaBookOpen className='text-warning fs-5'></FaBookOpen> Learning Guru </Navbar.Brand>
+       <FaBookOpen className='text-warning '></FaBookOpen> Learning Guru </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="ms-auto p-2 fs-5">
+          <Nav className="ms-auto p-2 ">
             <Nav.Link  href="/">Home</Nav.Link>
             <Nav.Link href="/Courses/:id">Courses</Nav.Link>
             <Nav.Link href="#FAQ">FAQ</Nav.Link>
