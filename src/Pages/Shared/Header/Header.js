@@ -1,16 +1,30 @@
 import React from 'react';
+import { useContext } from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import { Image } from 'react-bootstrap';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-import { FaBookOpen } from 'react-icons/fa';
+import { FaBookOpen, FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Context/AuthProvider.js/AuthProvider';
 
 
 
 const Header = () => {
+  const{user,logOut} = useContext(AuthContext);
+  const handleLogOut =()=>{
+    logOut()
+    .then(result=>{
+      const user = result.user;
+       console.log(user);
+    })
+    .catch(error=>console.error(error))
+  }
     const [theme,setTheme] = useState("light-theme");
+  
     const toggleTheme =() =>{
         if(theme === "dark-theme"){
             setTheme('light-theme');
@@ -38,9 +52,30 @@ const Header = () => {
             
           </Nav>
           <Nav className='ms-2 ps-3'>
-            <Nav.Link href="/login"><button className='btn btn-warning'>Login</button></Nav.Link>
+            <Nav.Link href="#deets">
+              {
+            user?.uid ?    
+         <>
+         <span>{user?.displayName}</span>
+         <button onClick={handleLogOut} className='btn btn-warning'>Log Out</button>
+         </>
+         :
+         <>
+         <Link to="/login">Login</Link>
+         <Link to="/register">Register</Link>
+         </>
+         }
+            </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
-              Dank memes
+              {
+                user?.photoURL ?
+                <Image
+                 style={{height:"40px"}} 
+                 roundedCircle 
+                 src={user.photoURL}></Image>
+                  :
+                  <FaUser></FaUser>
+              }
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
