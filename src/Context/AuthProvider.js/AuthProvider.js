@@ -9,13 +9,13 @@ import { useEffect } from 'react';
 export const AuthContext = createContext();
  const auth = getAuth(app)
 const AuthProvider = ({children}) => {
-   const [user,setUser] = useState(null)
+   const [user,setUser] = useState({});
 
    const providerLogin = (provider) =>{
     return signInWithPopup(auth,provider);
    }
 
-   useEffect(()=>{
+    useEffect(()=>{
     const unsubscribe = onAuthStateChanged(auth,(currentUser)=>{
         console.log("inside auth state change",currentUser);
         setUser(currentUser)
@@ -23,9 +23,9 @@ const AuthProvider = ({children}) => {
     return()=>{
         unsubscribe();
     }
-   },[])
+   },[]) 
 
-   const authInfo ={user,providerLogin}
+   const authInfo ={user,providerLogin};
     return (
         <AuthContext.Provider value={authInfo}>
             {children}
