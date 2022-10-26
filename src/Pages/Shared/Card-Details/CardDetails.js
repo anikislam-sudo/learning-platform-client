@@ -2,7 +2,9 @@ import React from 'react';
 import Card from 'react-bootstrap/Card';
 import CardGroup from 'react-bootstrap/CardGroup';
 import "./CardDetails.css";
-const CardDetails = ({courses}) => {
+import { faStar,faStarHalf,faVideo } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+const CardDetails = ({courses,course}) => {
   const {name,logo,Videos} =courses;
     return (
         <CardGroup className=' card'>
@@ -11,13 +13,22 @@ const CardDetails = ({courses}) => {
           <Card.Body>
             <Card.Title>{name}</Card.Title>
             <Card.Text>
-              This is a wider card with supporting text below as a natural lead-in
-              to additional content. This content is a little bit longer.
+            <h6> <FontAwesomeIcon className="ml-2 font-bold pl-2" icon={faVideo} />:{Videos}</h6>
+              raing:4.5
+              <FontAwesomeIcon className="text-warning"icon={faStar} />
+              <FontAwesomeIcon className="text-warning" icon={faStar} />
+               <FontAwesomeIcon className="text-warning" icon={faStar} />
+              <FontAwesomeIcon className="text-warning" icon={faStar} />
+              <FontAwesomeIcon className="text-warning" icon={faStarHalf} />
+           
+            
+             <h6>price:$2000</h6>
+             
+              
+          
             </Card.Text>
           </Card.Body>
-          <Card.Footer>
-            <small className="text-muted">Last updated 3 mins ago</small>
-          </Card.Footer>
+          <button className='btn btn-primary'>Buy</button>
         </Card>
        
       </CardGroup>

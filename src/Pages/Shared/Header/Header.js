@@ -38,7 +38,7 @@ const Header = () => {
             
           </Nav>
           <Nav className='ms-2 ps-3'>
-            <Nav.Link href="#deets">More deets</Nav.Link>
+            <Nav.Link href="/login"><button className='btn btn-warning'>Login</button></Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               Dank memes
             </Nav.Link>
