@@ -7,6 +7,7 @@ import "./Home.css";
 const Home = () => {
     return (
       <div className="img" >
+       
         <img src={img1}/>
         
         </div>

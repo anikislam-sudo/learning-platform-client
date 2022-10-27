@@ -46,8 +46,9 @@ const Header = () => {
           <Nav className="ms-auto p-2 ">
             <Nav.Link  href="/">Home</Nav.Link>
             <Nav.Link href="/Courses/:id">Courses</Nav.Link>
-            <Nav.Link href="#FAQ">FAQ</Nav.Link>
-            <Nav.Link href="#Blog">Blog</Nav.Link>
+            <Nav.Link href="/blog">Blog</Nav.Link>
+            <Nav.Link href="/faq">FAQ</Nav.Link>
+           
              <button onClick={toggleTheme} className=" btn btn-sm btn-secondary border border-2 rounded ms-2" > dark/light</button>
             
           </Nav>
