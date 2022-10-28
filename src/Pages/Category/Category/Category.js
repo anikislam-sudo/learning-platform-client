@@ -2,16 +2,13 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import"./Category.css"
-import { useContext } from 'react';
-import { AuthContext } from '../../../Context/AuthProvider.js/AuthProvider';
+
 
 const Category = () => {
-    const {handleCheckOut}= useContext(AuthContext);
+    
     const course = useLoaderData();
-    const {_id,name,logo,Videos,Description}=course;
-    const handlePremium=(item) =>{
-        handleCheckOut(item);
-    }
+    const {_id,name,logo,Description}=course;
+    
    // console.log("edd",course);
     return (
         
@@ -25,7 +22,7 @@ const Category = () => {
         <p ><span className='fw-bold'>Description:</span> {Description}</p>
           </Card.Text>
         </Card.Body>
-        <button onClick={()=>handlePremium(name)} className='btn btn-primary'>Get premium Access</button>
+        <button className='btn btn-primary'><Link className='text-white' to={`checkout/${_id}`}>Get premium Access</Link></button>
       </Card>
      </div>   
 

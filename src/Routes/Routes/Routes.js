@@ -39,8 +39,9 @@ export const routes = createBrowserRouter([
       element:<Register></Register>
    },
      {
-      path:"/checkout",
-      element:<CheckOut></CheckOut>
+      path:"/category/:id",
+      element:<CheckOut></CheckOut>,
+      loader:({params})=> fetch(`http://localhost:5000/Category/${params.id}`)
       
 
    },
