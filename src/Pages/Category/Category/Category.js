@@ -1,21 +1,36 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
-import CardDetails from '../../Shared/Card-Details/CardDetails';
-import Course from '../../Shared/Course/Course';
+import { Link, useLoaderData } from 'react-router-dom';
+import Card from 'react-bootstrap/Card';
+import"./Category.css"
+import { useContext } from 'react';
+import { AuthContext } from '../../../Context/AuthProvider.js/AuthProvider';
 
 const Category = () => {
-    const courses = useLoaderData();
-    console.log("e",courses);
+    const {handleCheckOut}= useContext(AuthContext);
+    const course = useLoaderData();
+    const {_id,name,logo,Videos,Description}=course;
+    const handlePremium=(item) =>{
+        handleCheckOut(item);
+    }
+   // console.log("edd",course);
     return (
-        <div>
-            <h2>this Category has a course:length:{courses.length}</h2>
+        
+     <div className="  card1  mx-auto mt-3 mb-3  ">
+        <Card className='border border-2'>
+        <Card.Img className="image1"  variant="top" src={logo} />
+        <Card.Body>
+          <Card.Title>{name}</Card.Title>
+         
+          <Card.Text>
+        <p ><span className='fw-bold'>Description:</span> {Description}</p>
+          </Card.Text>
+        </Card.Body>
+        <button onClick={()=>handlePremium(name)} className='btn btn-primary'>Get premium Access</button>
+      </Card>
+     </div>   
+
       
-        {
-            courses.map(course=><CardDetails
-            key={course._id}
-            course={course}></CardDetails>)
-        }
-          </div>
+         
     );
 };
 

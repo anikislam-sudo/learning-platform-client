@@ -4,8 +4,10 @@ import CardGroup from 'react-bootstrap/CardGroup';
 import "./CardDetails.css";
 import { faStar,faStarHalf,faVideo } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-const CardDetails = ({courses,course}) => {
-  const {name,logo,Videos} =courses;
+import { Link } from 'react-router-dom';
+const CardDetails = ({courses}) => {
+  const {name,logo,Videos,_id} =courses;
+
     return (
         <CardGroup className=' card'>
         <Card>
@@ -24,11 +26,11 @@ const CardDetails = ({courses,course}) => {
             
              <h6>price:$2000</h6>
              
-              
+             <Link  className=' text-decoration-none'>Read More...</Link>
           
             </Card.Text>
           </Card.Body>
-          <button className='btn btn-primary'>Buy</button>
+          
         </Card>
        
       </CardGroup>

@@ -6,10 +6,14 @@ import "./Home.css";
 
 const Home = () => {
     return (
-      <div className="img" >
-       
+      <div className='main'>
+       <div className="img mt-2 ">
         <img src={img1}/>
-        
+        </div>
+        <div className=' fw-bold text1'>
+          <h2>Welcome to Learning Guru World!!!</h2>
+          <button className='btn btn-warning'>Get Started</button>
+        </div>
         </div>
     );
 };

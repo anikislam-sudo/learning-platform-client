@@ -11,6 +11,11 @@ export const AuthContext = createContext();
 const AuthProvider = ({children}) => {
    const [user,setUser] = useState(null);
    const[loading,setLoading] = useState(true);
+   const[enroll,setEnroll] = useState("title did not found");
+
+   const handleCheckOut=(item)=>{
+    setEnroll(item  );
+   }
 
    const providerLogin = (provider) =>{
     return signInWithPopup(auth,provider);
@@ -43,7 +48,11 @@ const signIn = (email, password) => {
     }
    },[]) 
 
-   const authInfo ={user,
+   const authInfo ={
+    user,
+    loading,
+    enroll,
+    handleCheckOut,
     providerLogin,
     logOut,
     updateUserProfile,

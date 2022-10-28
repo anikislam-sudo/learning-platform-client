@@ -19,7 +19,7 @@ const FAQ = () => {
         <Accordion.Header>what is your purpose of this website?</Accordion.Header>
         <Accordion.Body>
          Learning guru website is created mainly who are beginner for learning  programming language.
-          In this website has a lot programming language resource there and student can easily  understand
+          In this website has a lot programming language resource here and student can easily  understand
           and student get more enjoy for learning a code.
         </Accordion.Body>
       </Accordion.Item>

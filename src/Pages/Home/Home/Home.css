@@ -1,9 +1,16 @@
 .img{
-
+ 
     height:60vh;
 
 }
 .img img{
     width:100%;
     height: 550px;
+}
+.text1{
+    text-align: center;
+    color: white;
+    margin-top: -224px;
+    
+    
 }

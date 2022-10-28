@@ -7,7 +7,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
-import { FaBookOpen, FaUser } from 'react-icons/fa';
+import { FaBookOpen, FaUser,FaLightbulb } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider.js/AuthProvider';
 
@@ -23,33 +23,33 @@ const Header = () => {
     })
     .catch(error=>console.error(error))
   }
-    const [theme,setTheme] = useState("light-theme");
+    const [theme,setTheme] = useState("light");
   
     const toggleTheme =() =>{
-        if(theme === "dark-theme"){
-            setTheme('light-theme');
+        if(theme === "light"){
+            setTheme('dark');
         }
         else{
-            setTheme('dark-theme');
+            setTheme('light');
         }
     };
     useEffect(()=>{
-        document.body.className =theme;
-    },[theme])
+     document.body.className = theme;
+    },[theme]);
     return (
         <Navbar className='mb-1' collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <Navbar.Brand href="#home">
+        <Navbar.Brand href="/">
        <FaBookOpen className='text-warning '></FaBookOpen> Learning Guru </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="ms-auto p-2 ">
             <Nav.Link  href="/">Home</Nav.Link>
-            <Nav.Link href="/Courses/:id">Courses</Nav.Link>
+            <Nav.Link href="/AllCourses">Courses</Nav.Link>
             <Nav.Link href="/blog">Blog</Nav.Link>
             <Nav.Link href="/faq">FAQ</Nav.Link>
            
-             <button onClick={toggleTheme} className=" btn btn-sm btn-secondary border border-2 rounded ms-2" > dark/light</button>
+             <button onClick={toggleTheme} className=" btn btn-sm btn-dark border border-1 rounded ms-2" ><FaLightbulb className='text-warning'></FaLightbulb></button>
             
           </Nav>
           <Nav className='ms-2 ps-3'>
@@ -69,7 +69,8 @@ const Header = () => {
             </Nav.Link>
             <Nav.Link eventKey={2} href="#memes">
               {
-                user?.photoURL ?
+                user?.photoURL 
+                   ?
                 <Image
                  style={{height:"40px"}} 
                  roundedCircle 
